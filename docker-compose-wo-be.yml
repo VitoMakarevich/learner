@@ -1,0 +1,12 @@
+version: '3'
+services:
+  postgres:
+    container_name: 'learner-pg'
+    image: "postgres:alpine"
+    ports:
+      - '5435:5432'
+    environment:
+      POSTGRES_USER: 'learner'
+      POSTGRES_DB: 'learner'
+      POSTGRES_PASSWORD: 'learner'
+      POSTGRES_PORT: 5435
