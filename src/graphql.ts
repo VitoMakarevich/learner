@@ -5,33 +5,44 @@
  */
 
 /* tslint:disable */
-export interface SignInRequest {
-    login: string;
-    password: string;
+/* eslint-disable */
+export class CreatePostIn {
+    url: string;
+    description?: string;
 }
 
-export interface IMutation {
-    delete(id: number): Post | Promise<Post>;
+export class PaginationIn {
+    limit: number;
+    page: number;
 }
 
-export interface Post {
+export abstract class IMutation {
+    abstract createPost(post: CreatePostIn): Post | Promise<Post>;
+
+    abstract deletePost(id: number): Post | Promise<Post>;
+}
+
+export class PaginatedPost {
+    meta?: PostMeta;
+    items?: Post[];
+}
+
+export class Post {
     id: number;
     url: string;
     description?: string;
     created: string;
+    updated: string;
 }
 
-export interface IQuery {
-    getPosts(): Post[] | Promise<Post[]>;
-    signIn(data?: SignInRequest): SignInResponse | Promise<SignInResponse>;
+export class PostMeta {
+    currentPage: number;
+    itemCount: number;
+    itemsPerPage: number;
+    totalItems: number;
+    totalPages: number;
 }
 
-export interface SignInResponse {
-    user: User;
-    token: string;
-}
-
-export interface User {
-    id: number;
-    name: string;
+export abstract class IQuery {
+    abstract getPosts(pagination: PaginationIn): PaginatedPost | Promise<PaginatedPost>;
 }

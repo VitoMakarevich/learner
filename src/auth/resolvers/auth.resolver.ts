@@ -1,14 +1,14 @@
 import { Query, Resolver } from '@nestjs/graphql'
 import { UserService } from '../service/user.service'
-import { SignInRequest } from '../../graphql'
 import { Request, UseGuards } from '@nestjs/common'
 import { AuthGuard } from '@nestjs/passport'
+import { SignInIn } from '../input/signIn'
 
 @Resolver('User')
 export class AuthResolver {
   @Query()
   @UseGuards(AuthGuard('jwt'))
-  signIn(@Request() data: SignInRequest) {
+  signIn(@Request() data: SignInIn) {
     return data
   }
 }

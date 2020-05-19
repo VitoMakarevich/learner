@@ -3,7 +3,6 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { config } from 'dotenv'
 import { PostsModule } from './posts/posts.module';
 import { GraphQLModule } from '@nestjs/graphql'
-import { join } from 'path'
 config()
 
 @Module({
@@ -19,10 +18,8 @@ config()
       synchronize: true,
     }),
     GraphQLModule.forRoot({
-      typePaths: ['src/graphql/schema.graphql'],
-      definitions: {
-        path: join(process.cwd(), 'src/graphql.ts'),
-      },
+      autoSchemaFile: 'src/graphql/schema.graphql',
+      playground: true
     }),
     PostsModule,
     // TODO: fix when it will be not so tedious
