@@ -12,7 +12,7 @@
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "generate:typings": "ts-node scripts/generateTypings",
-    "start:prod": "node dist/main",
+    "start:prod": "node dist/src/main",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest",
     "test:watch": "jest --watch",

@@ -9,4 +9,3 @@ services:
       POSTGRES_USER: 'learner'
       POSTGRES_DB: 'learner'
       POSTGRES_PASSWORD: 'learner'
-      POSTGRES_PORT: 5435

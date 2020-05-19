@@ -3,7 +3,10 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { config } from 'dotenv'
 import { PostsModule } from './posts/posts.module';
 import { GraphQLModule } from '@nestjs/graphql'
-config()
+
+const isProduction = process.env.NODE_ENV === 'production'
+
+if (!isProduction) { config() }
 
 @Module({
   imports: [

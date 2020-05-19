@@ -1,0 +1,25 @@
+version: '3'
+services:
+  be:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DB_PORT: 5433
+      DB_USER: 'learner'
+      DB_PASSWORD: 'learner'
+      DB_NAME: 'learner'
+      DB_HOST: 'localhost'
+    depends_on:
+      - postgres
+    ports:
+      - '7000:7000'
+  postgres:
+    container_name: 'learner-pg'
+    image: "postgres:alpine"
+    ports:
+      - '5433:5432'
+    environment:
+      POSTGRES_USER: 'learner'
+      POSTGRES_DB: 'learner'
+      POSTGRES_PASSWORD: 'learner'
