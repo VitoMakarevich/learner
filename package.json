@@ -33,7 +33,7 @@
     "@types/passport-jwt": "^3.0.3",
     "apollo-server-express": "2.13.0",
     "bcrypt": "^3.0.7",
-    "class-validator": "^0.12.2",
+    "class-validator": "^0.14.0",
     "dotenv": "^8.2.0",
     "express-rate-limit": "^5.0.0",
     "faker": "^4.1.0",
